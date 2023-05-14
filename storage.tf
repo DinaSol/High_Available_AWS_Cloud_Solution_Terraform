@@ -38,12 +38,14 @@ data "aws_iam_policy_document" "allow-iam-role" {
   }
   }
 
+
 resource "aws_dynamodb_table" "Employees-dynamodb-table" {
   name           = "Employees"
   hash_key       = "id"
+   billing_mode     = "PAY_PER_REQUEST"
 
   attribute {
-    name = "UserId"
+    name = "id"
     type = "S"
   }
 
@@ -52,3 +54,4 @@ resource "aws_dynamodb_table" "Employees-dynamodb-table" {
     Environment = "production"
   }
 }
+
