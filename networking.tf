@@ -37,20 +37,20 @@ resource "aws_route_table" "public-RT" {
   }
 }
 
-# ############ here
+
 # associate the route table to the subnet "dina-public-subnet"
 
-# resource "aws_route_table_association" "RT_assoc1" {
+resource "aws_route_table_association" "RT_assoc1" {
 
-#   subnet_id =  aws_subnet.subnet["eu-north-1a"].id 
-#   route_table_id = aws_route_table.public-RT.id
-# }
+  subnet_id =  aws_subnet.subnet["eu-north-1a"].id 
+  route_table_id = aws_route_table.public-RT.id
+}
 
-# resource "aws_route_table_association" "RT_assoc2" {
+resource "aws_route_table_association" "RT_assoc2" {
 
-#   subnet_id =  aws_subnet.subnet["eu-north-1b"].id 
-#   route_table_id = aws_route_table.public-RT.id
-# }
+  subnet_id =  aws_subnet.subnet["eu-north-1b"].id 
+  route_table_id = aws_route_table.public-RT.id
+}
 
 # add SG to instances
 resource "aws_security_group" "allow_http" {
